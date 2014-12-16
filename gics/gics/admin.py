@@ -1,5 +1,5 @@
 # coding=utf8
-from gics.models import School, Lecture, Session, UserHistory
+from gics.models import School, Lecture, Session, UserHistory, Discipline
 from django.forms import Textarea
 from django.db import models
 from django.contrib import admin, messages
