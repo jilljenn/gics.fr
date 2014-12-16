@@ -31,12 +31,17 @@ class School(models.Model):
     def __unicode__(self):
         return self.title
 
+class Discipline(models.Model):
+    title = models.CharField(max_length=64)
+    def __unicode__(self):
+        return self.title
+
 class Lecture(models.Model):
-    discipline = models.CharField(max_length=16)  # Tags ou disciplines ?
+    discipline = models.ManyToManyField(Discipline)  # Tags ou disciplines ?
     title = models.CharField(max_length=32)
     description = models.TextField()
-    poster = models.CharField(max_length=32)
-    links = models.CommaSeparatedIntegerField(max_length=168)
+    poster = models.CharField(max_length=32, default='')
+    links = models.TextField(max_length=168, default='')
     def __unicode__(self):
         return self.title
 
