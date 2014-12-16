@@ -16,7 +16,11 @@ class LectureAdmin(admin.ModelAdmin):
 class SessionAdmin(admin.ModelAdmin):
     pass
 
+class DisciplineAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(School, SchoolAdmin)
 admin.site.register(UserHistory, UserHistoryAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Session, SessionAdmin)
+admin.site.register(Discipline, DisciplineAdmin)
