@@ -3,46 +3,27 @@ from django.views.generic.list import ListView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponse
-# from gics.models import Work, Anime, Rating, Page
-
-"""class AnimeDetail(DetailView):
-    model = Anime
-    def get_context_data(self, **kwargs):
-        context = super(AnimeDetail, self).get_context_data(**kwargs)
-        context['object'].source = context['object'].source.split(',')[0]
-        if self.request.user.is_authenticated():
-            try:
-                context['rating'] = self.object.rating_set.get(user=self.request.user).choice
-            except Rating.DoesNotExist:
-                pass
-        return context
-
-class AnimeList(ListView):
-    model = Anime
-    context_object_name = 'anime'
-    def get_queryset(self):
-        return Anime.objects.order_by('title') if self.kwargs['mode'] == 'z' else Anime.objects.all()
-    def get_context_data(self, **kwargs):
-        context = super(AnimeList, self).get_context_data(**kwargs)
-        context['template_mode'] = 'work_no_poster.html' if self.kwargs['mode'] == 'a' else 'work_poster.html'
-        if self.request.user.is_authenticated():
-            for obj in context['object_list']:
-                try:
-                    obj.rating = obj.rating_set.get(user=self.request.user).choice
-                except Rating.DoesNotExist:
-                    pass
-        return context 
-
-class RatingList(ListView):
-    model = Rating
-    def get_queryset(self):
-        return Rating.objects.filter(user=self.request.user)
-    def get_context_data(self, **kwargs):
-        ordering = ['willsee', 'like', 'neutral', 'dislike', 'wontsee']
-        context = super(RatingList, self).get_context_data(**kwargs)
-        context['object_list'] = sorted(context['object_list'], key=lambda x: ordering.index(x.choice))
-        return context"""
+from django.http import HttpResponse, Http404
+from gics.models import News, Session, Page
+from datetime import datetime
+from markdown import markdown
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {
+        'news_list': News.objects.order_by('-date')[:5],
+        'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
+    })
+
+class MarkdownView(DetailView):
+    model = Page
+    slug_field = 'name'
+    template_name = 'static.html'
+    """def get_object(self):
+        try:
+            return super(MarkdownView, self).get_object()
+        except Http404:
+            Page(name=self.kwargs['slug'], markdown='').save()  # Create the page if it does not exist
+            raise Http404"""
+    def get_context_data(self, **kwargs):
+        page = super(MarkdownView, self).get_object()
+        return {'html': markdown(page.markdown), 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]}

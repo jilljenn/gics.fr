@@ -52,3 +52,17 @@ class Session(models.Model):
     speaker = models.ForeignKey(User)
     def __unicode__(self):
         return self.lecture.title + str(self.date)
+
+class News(models.Model):
+    title = models.CharField(max_length=64)
+    date = models.DateTimeField()
+    author = models.ForeignKey(User)
+    content = models.TextField()
+    def __unicode__(self):
+        return self.title
+
+class Page(models.Model):
+    name = models.SlugField()
+    markdown = models.TextField()
+    def __unicode__(self):
+        return self.name

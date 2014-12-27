@@ -1,5 +1,5 @@
 # coding=utf8
-from gics.models import School, Lecture, Session, UserHistory, Discipline
+from gics.models import School, Lecture, Session, UserHistory, Discipline, News, Page
 from django.forms import Textarea
 from django.db import models
 from django.contrib import admin, messages
@@ -19,8 +19,16 @@ class SessionAdmin(admin.ModelAdmin):
 class DisciplineAdmin(admin.ModelAdmin):
     pass
 
+class NewsAdmin(admin.ModelAdmin):
+    pass
+
+class PageAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(School, SchoolAdmin)
 admin.site.register(UserHistory, UserHistoryAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Session, SessionAdmin)
 admin.site.register(Discipline, DisciplineAdmin)
+admin.site.register(News, NewsAdmin)
+admin.site.register(Page, PageAdmin)

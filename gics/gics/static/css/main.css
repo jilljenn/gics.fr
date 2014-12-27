@@ -2373,8 +2373,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../../bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('../../bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/static/fonts/glyphicons-halflings-regular.eot');
+  src: url('/static/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/static/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/static/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/static/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -5782,7 +5782,7 @@ button.close {
 /* FONTS */
 @font-face {
   font-family: 'AlegryaSans';
-  src: url('../../fonts/AlegreyaSans-Regular.ttf');
+  src: url('/static/fonts/AlegreyaSans-Regular.ttf');
 }
 
 
@@ -5800,13 +5800,12 @@ button.close {
 	margin-bottom: 20px;
 }
 
-
-	.module h1 {
-		font-family: AlegryaSans, Verdana, sans-serif;
-		font-variant: small-caps;
-		font-size: 15pt;
-		margin: 0;
-	}
+#middle h1, .module h1 {
+	font-family: AlegryaSans, Verdana, sans-serif;
+	font-variant: small-caps;
+	font-size: 2.5em;
+	margin: 0;
+}
 
 .half-div {
 	vertical-align: top;
@@ -6088,9 +6087,9 @@ body {
 
 #main {
 	background-color: white;
-	border-top: 10px solid #f24c27;
+	border-top: 7px solid #f24c27;
 	border-bottom: 1px solid #e5e3e3;
-	padding: 20px 20px 30px 20px;
+	padding: 10px 20px 30px 20px;
 	min-height: 500px;
 }
 
@@ -6118,7 +6117,7 @@ body {
 	/*margin-top: 80px;*/
 }
 
-	#right h1 {
+#main h1, #right h1 {
 		margin-bottom: 10px;
 	}
 
