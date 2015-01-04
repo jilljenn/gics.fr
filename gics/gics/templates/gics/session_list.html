@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>Prochains ateliers</h1>
+{% for session in object_list %}
+<hr />
+<article>
+    <h3>{{ session.lecture.title }}</h3>
+    <h4>Le {{ session.date }} – {{ session.school }}</h4>
+    <span class="author">Par {{ session.speaker.first_name }} {{ session.speaker.last_name }}</span>
+    <p class="well">{{ session.lecture.description }}</p>
+</article>
+{% endfor %}
+{% endblock %}
+
+{% block aside %}
+{% endblock %}

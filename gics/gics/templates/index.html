@@ -1,21 +1,15 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>Dernières actualités</h1>
+<h1>Bienvenue sur le site du GICS !</h1>
 {% for news in news_list %}
-<div class="head">
-    <span class="title">
-        <h3>{{ news.title }}</h3>
-    </span>
-</div>
-<div class="article">
-    <p>{{ news.content }}</p>
-    <div class="footer">
-        <small style="float: right">
-            Par {{ news.author.first_name }} le {{ news.date }}
-        </small>        
-    </div>
-</div>
-<hr style="clear: both" />
+<article>
+    <header>
+        <h2>{{ news.title|safe }}</h2>
+        <span class="date">Le {{ news.date }}, par {{ news.author.first_name }}</span>
+    </header>
+    <p>{{ news.content|safe }}</p>
+    <hr style="clear: both" />
+</article>
 {% endfor %}
 {% endblock %}

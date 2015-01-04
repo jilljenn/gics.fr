@@ -1,0 +1,19 @@
+.container {
+    width: 970px;
+}
+
+footer {
+    padding: 10px;
+}
+
+address:last-child {
+    margin: 0;
+}
+
+article .date, article .author {
+    color: #999;
+}
+
+article header {
+    margin-bottom: 10px;
+}

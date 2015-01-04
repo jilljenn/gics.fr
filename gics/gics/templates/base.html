@@ -1,354 +1,142 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-  <head>
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-                  <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
-      
-              <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv-printshiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-<![endif]-->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <title> GICS </title>
-  </head>
-  <body>
-
-    <div class="container-fluid">
-      <div class="row-fluid" id="header">
-        <div id="logo" class="col-md-3">
-  <a href="/">
-    <img src="/static/img/logo.png" alt="logo GICS" title="logo GICS" />
-  </a>
-</div>
-<div id="headerRight" class="col-md-9">
-  <div id="catchphrase" class="row">Groupe pour l'Initiative et la Culture Scientifiques</div>
-  <div id="menu" class="row">
-            <div class="menuElement">
-    <div class="button">Le GICS</div>
-        <div class="subMenu">
-            <a href="/">
-                <div class="button">
-                    Actualités
-                </div>
-            </a>
-                        <a href=/page/notre-action>
-                <div class="button">
-                    Notre action
-                </div>
-            </a>
-                        <a href=/page/l-equipe>
-                <div class="button">
-                    L&#039;équipe
-                </div>
-            </a>
-                        <a href=/page/historique>
-                <div class="button">
-                    Historique
-                </div>
-            </a>
-                        <a href=/page/on-parle-du-gics>
-                <div class="button">
-                    On parle du GICS !
-                </div>
-            </a>
-                        <a href=/page/documents>
-                <div class="button">
-                    Documents
-                </div>
-            </a>
-                        <a href=/page/communication>
-                <div class="button">
-                    Communication
-                </div>
-            </a>
-                        <a href=/page/nous-aider>
-                <div class="button">
-                    Nous aider
-                </div>
-            </a>
-                        <a href=/page/partenaires>
-                <div class="button">
-                    Partenaires
-                </div>
-            </a>
-                    </div>
-    <div class="separator">|</div>
-</div>
-
-<div class="menuElement">
-    <div class="button">Lycéens</div>
-        <div class="subMenu">
-                        <a href=/page/assister-aux-seances>
-                <div class="button">
-                    Assister aux séances
-                </div>
-            </a>
-                        <a href=/page/supports-des-cours>
-                <div class="button">
-                    Supports des cours
-                </div>
-            </a>
-                        <div class="menuElement">
-                <a href=/ecoles/>
-                    <div class="button">
-                        Lycées Partenaires
-                    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>GICS - Groupe pour l'initiative et la culture scientifiques</title>
+    <link rel="icon" href="/static/img/favicon.ico">
+    <script src="/static/js/jquery-latest.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/gics.css" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
+                    <span class="sr-only">Ouvrir le menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/static/img/logo.png" style="margin-top: -5px; margin-left: 10px;" />
                 </a>
-                <div class="subMenu right">
-                                        <a href=/ecoles/emmanuel-mounier>
-                        <div class="button">
-                            Emmanuel Mounier
-                        </div>
-                    </a>
-                                        <a href=/ecoles/lakanal>
-                        <div class="button">
-                            Lakanal
-                        </div>
-                    </a>
-                                        <a href=/ecoles/camille-claudel>
-                        <div class="button">
-                            Camille Claudel
-                        </div>
-                    </a>
-                                        <a href=/ecoles/camille-see>
-                        <div class="button">
-                            Camille Sée
-                        </div>
-                    </a>
-                                        <a href=/ecoles/berthelot>
-                        <div class="button">
-                            Berthelot
-                        </div>
-                    </a>
-                                        <a href=/ecoles/autre-lycee>
-                        <div class="button">
-                            Autre Lycée
-                        </div>
-                    </a>
-                                        <a href=/ecoles/eiffel-sorre>
-                        <div class="button">
-                            Eiffel &amp; Sorre
-                        </div>
-                    </a>
-                                    </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="menu-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Le GICS <span class="caret"></span></a>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/">Actualités</a></li>
+                            <li><a href="/page/notre-action/">Notre action</a></li>
+                            <li><a href="/page/l-equipe/">L'équipe</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/page/historique/">Historique</a></li>
+                            <li><a href="/page/documents/">Documents</a></li>
+                            <li><a href="/page/communication/">Communication</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/page/nous-aider/">Nous aider</a></li>
+                            <li><a href="/page/partenaires/">Partenaires</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Lycéens <span class="caret"></span></a>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/page/assister-aux-seances/">Assister aux séances</a></li>
+                            <li><a href="/page/supports-des-cours/">Supports des cours</a></li>
+                            <li><a href="/ecoles/">Lycées partenaires</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Intervenants <span class="caret"></span></a>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/page/devenir-intervenant/">Devenir intervenant</a></li>
+                            <li><a href="/page/devenir-responsable-de-lycee/">Devenir responsable de lycée</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/page/ressources-pedagogiques/">Ressources pédagogiques</a></li>
+                            <li><a href="/page/ressources-pedagogiques/">Témoignages</a></li>
+                            <li><a href="/ateliers/">Les ateliers</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Communauté <span class="caret"></span></a>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/forum/">Forum</a></li>
+                            <li><a href="/page/citations/">Citations</a></li>
+                            <li><a href="/page/enigmes/">Énigmes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/contact/">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/faq/">
+                            FAQ
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-    <div class="separator">|</div>
-</div>
+    </nav>
 
-<div class="menuElement">
-    <div class="button">Intervenants</div>
-        <div class="subMenu">
-                        <a href=/page/devenir-intervenant>
-                <div class="button">
-                    Devenir intervenant
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    {% block aside %}
+                        <h4>Prochains ateliers</h4>
+                        {% if not next_sessions %}
+                           Il n'y a aucune séance en cours.
+                        {% else %}
+                            <ul>
+                            {% for session in next_sessions %}
+                                <li><strong><em>{{ session.lecture }}</em></strong> au {{ session.school }} par {{ session.speaker.first_name }} {{ session.speaker.last_name }}, le {{ session.date }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                       <hr />
+                    {% endblock %}
                 </div>
-            </a>
-                        <a href=/page/devenir-responsable-de-lycee>
-                <div class="button">
-                    Devenir responsable de lycée
+                <div>
+                    <h4>Suivez-nous !</h4>
+                    <ul>
+                        <li><a href="https://www.facebook.com/gics.asso" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/gics_asso" target="_blank">Twitter</a></li>
+                        <li><a href="http://www.linkedin.com/company/groupe-pour-l'initiative-et-la-culture-scientifiques-gics-" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://plus.google.com/116028341437164090594/posts" target="_blank">Google+</a></li>
+                    </ul>
                 </div>
-            </a>
-                        <a href=/page/ressources-pedagogiques>
-                <div class="button">
-                    Ressources pédagogiques
-                </div>
-            </a>
-                        <a href=/page/temoignages>
-                <div class="button">
-                    Témoignages
-                </div>
-            </a>
-                        <a href="/cours/">
-                <div class="button">
-                    Les Cours du GICS
-                </div>
-            </a>
-            <a href="/seances/">
-                <div class="button">
-                    Les Séances du GICS
-                </div>
-            </a>
-        </div>
-    <div class="separator">|</div>
-</div>
-
-<div class="menuElement">
-    <div class="button">Communauté</div>
-        <div class="subMenu">
-            <a href=/forum/>
-                <div class="button">
-                    Forum
-                </div>
-            </a>
-                        <a href=/page/citations>
-                <div class="button">
-                    Citations
-                </div>
-            </a>
-                        <a href=/page/enigmes>
-                <div class="button">
-                    Énigmes
-                </div>
-            </a>
-                    </div>
-    <div class="separator">|</div>
-</div>
-
-<div class="menuElement">
-    <a href=/contact>
-        <div class="button">
-            Contact
-        </div>
-    </a>
-    <div class="separator">|</div>
-</div>
-
-<div class="menuElement">
-    <a href=/faq/>
-        <div class="button">
-            FAQ
-        </div>
-    </a>
-</div>
-      </div>
-</div>
-      </div>
-
-
-              <div id="title" class="row-fluid">
-            <h1 class="col-md-4 col-md-offset-2"> Bienvenue sur le site du GICS ! </h1>
-            <div id="path" class="col-md-2">
-              <a href=/>Accueil</a>            </div>
-            <div id="search" class="col-md-2">
-              <form method="post" action=/recherche>  
-                <div class="input-group">
-                  <input  type="text" name="query" class="form-control input-xlarge search-query" placeholder="Recherche..." />
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
-                </div>
-              </form>
             </div>
         </div>
+    </div>
+    <div style="height: 100px; display: block">
+    </div>
 
-      <div id="content" class="row-fluid">
-      
-        <div id="middle" class="col-md-7 col-md-offset-1">
-          <div id="main" class="row">
-              <div id="alerts">
-                
-                          </div>
-            
-<div>
-
-    <!-- <div id="carousel" class="carousel slide">
-      <div class="carousel-inner">
-                    <div class="item active">
-                <img src="/uploads/images/slides/slide_1396199871.jpg" alt="slide_1396199871.jpg" />
-<div class="carousel-caption slide-content">
-    <h2>Le GICS c&#039;est top !</h2>
-    <div class="content">Inscrivez-vous pour devenir un maître des maths</div>
-    </div>          </div>
-                    <div class="item">
-                <img src="/uploads/images/slides/slide_1397036875.jpg" alt="slide_1397036875.jpg" />
-<div class="carousel-caption slide-content">
-    <h2>Ouais !</h2>
-    <div class="content">Le GICS organise une grande conférence de fin d&#039;année à l&#039;IHP, avec en guest star le physicien Roland Lehoucq</div>
-        <a class="btn btn-lg btn-primary" href="index.html">
-        Préinscrivez-vous vite !
-    </a>
-    </div>          </div>
-                    <div class="item">
-                <img src="/uploads/images/slides/slide_1397036526.jpg" alt="slide_1397036526.jpg" />
-<div class="carousel-caption slide-content">
-    <h2>Slide test bouton</h2>
-    <div class="content">Aide nous à tester le site en cliquant sur le bouton !</div>
-        <a class="btn btn-lg btn-primary" href="http://www.gics-asso.com/">
-        Bouton
-    </a>
-    </div>          </div>
-              </div>
-     
-      <a class="carousel-control left" href="#carousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="carousel-control right" href="#carousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div> -->
-
-{% block body %}{% endblock %}
-</div>
-
-          </div>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <address>
+                Groupe pour l'Initiative et la Culture Scientifiques – Association loi 1901<br />
+                11 rue Pierre-et-Marie-Curie<br />
+                75005 Paris
+            </address>
         </div>
-
-        <div id="right" class="col-md-3">
-            <div class="module">
-    <h1>Prochaines séances</h1>
-
-<div id="sessionMenu">
-{% if not next_sessions %}
-    Il n'y a aucune séance en cours.
-{% else %}
-    <ul>
-    {% for session in next_sessions %}
-        <li><strong><em>{{ session.lecture }}</em></strong> au {{ session.school }} par {{ session.speaker.first_name }} {{ session.speaker.last_name }}, le {{ session.date }}</li>
-    {% endfor %}
-    </ul>
-{% endif %}
-</div>
-</div>        </div>
-      </div>
-    </div>
-        
-    <div id="footer" class="row-fluid">
-      <div id="social">
-    <div class="title">Suivez-Nous !</div>
-    <div class="logos">
-        <a href="https://www.facebook.com/gics.asso" target=_blank>
-            <img src="/static/img/facebook.png" alt="Facebook" />
-        </a>
-        <a href="https://twitter.com/@gics_asso" target=_blank>
-            <img src="/static/img/twitter.png" alt="Facebook" />
-        </a>
-        <a href="http://www.linkedin.com/company/groupe-pour-l'initiative-et-la-culture-scientifiques-gics-" target=_blank>
-            <img src="/static/img/linkedin.png" alt="Facebook" />
-        </a>
-        <a href="https://plus.google.com/116028341437164090594/posts" target=_blank>
-            <img src="/static/img/googleplus.png" alt="Facebook" />
-        </a>
-    </div>
-</div>
-
-<div id="address">
-    Groupe pour l'Initiative et la Culture Scientifiques (GICS)<br />
-    Association loi 1901 domiciliée au 11 rue Pierre-et-Marie-Curie - 75005 Paris
-</div>
-<div id="footerLinks">
-    <div class="menuElement">
-        <a href=/contact>
-            Contact
-        </a>
-    </div>
-    <div class="menuElement">
-        <a href=/faq/>
-            FAQ
-        </a>
-    </div>
-</div>    </div>
-      
-
-      <!-- Javascript -->
-                        <script type="text/javascript" src="/static/js/main.js"></script>
-        
-              
-  </body>
+    </footer>
+</body>
 </html>

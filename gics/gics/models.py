@@ -66,3 +66,8 @@ class Page(models.Model):
     markdown = models.TextField()
     def __unicode__(self):
         return self.name
+
+class Document(models.Model):
+    content = models.FileField(upload_to='files')
+    def __unicode__(self):
+        return self.content.name
