@@ -12,7 +12,7 @@ class Phantom(models.Model):
     name = models.CharField(max_length=64)
 
 class UserHistory(models.Model):
-    user = models.ManyToManyField(User)
+    user = models.ForeignKey(User)
     date = models.DateField()
     action = models.CharField(max_length=15, choices=(
         ('joined', 'Adhésion'),
@@ -20,7 +20,9 @@ class UserHistory(models.Model):
         ('fired', 'Radiation'),
         ('offered', 'Don'),
     ))
-    donation = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    donation = models.DecimalField(max_digits=16, decimal_places=2, default=0)
+    def __unicode__(self):
+        return '%s %s' % (self.user, self.action)
 
 class School(models.Model):
     title = models.CharField(max_length=64)
@@ -40,7 +42,7 @@ class Lecture(models.Model):
     discipline = models.ManyToManyField(Discipline)  # Tags ou disciplines ?
     title = models.CharField(max_length=32)
     description = models.TextField()
-    poster = models.CharField(max_length=32, default='')
+    poster = models.CharField(max_length=32, default='', blank=True)
     links = models.TextField(max_length=168, default='')
     def __unicode__(self):
         return self.title
@@ -50,8 +52,13 @@ class Session(models.Model):
     school = models.ForeignKey('School')
     date = models.DateTimeField()
     speaker = models.ForeignKey(User)
+    details = models.TextField(default='', blank=True)
+    slot_defined = models.BooleanField(default=False)
+    media_printed = models.BooleanField(default=False)
+    feedback_collected = models.BooleanField(default=False)
+    debrief_done = models.BooleanField(default=False)
     def __unicode__(self):
-        return self.lecture.title + str(self.date)
+        return self.lecture.title
 
 class News(models.Model):
     title = models.CharField(max_length=64)

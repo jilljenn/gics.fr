@@ -17,7 +17,12 @@ class LectureAdmin(admin.ModelAdmin):
     pass
 
 class SessionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('lecture', 'school', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done')
+    def queryset(self, request):
+        qs = super(SessionAdmin, self).queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(school__manager=request.user)
 
 class DisciplineAdmin(admin.ModelAdmin):
     pass
