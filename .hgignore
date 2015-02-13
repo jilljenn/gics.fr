@@ -4,3 +4,4 @@ syntax: glob
 db.sqlite3
 *.pyc
 files
+venv

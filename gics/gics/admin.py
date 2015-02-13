@@ -18,7 +18,7 @@ class LectureAdmin(admin.ModelAdmin):
 
 class SessionAdmin(admin.ModelAdmin):
     list_display = ('lecture', 'school', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done')
-    def queryset(self, request):
+    def get_queryset(self, request):
         qs = super(SessionAdmin, self).queryset(request)
         if request.user.is_superuser:
             return qs

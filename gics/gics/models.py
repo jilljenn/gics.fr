@@ -6,7 +6,7 @@ class UserProfile(models.Model):  # Garantir le lien
     user = models.OneToOneField(User)
     school = models.ForeignKey('School')
     school_year = models.CharField(max_length=32)
-    newsletter = models.BooleanField()
+    newsletter = models.BooleanField(default=True)
 
 class Phantom(models.Model):
     name = models.CharField(max_length=64)
