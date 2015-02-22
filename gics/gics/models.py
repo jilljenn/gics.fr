@@ -39,11 +39,11 @@ class Discipline(models.Model):
         return self.title
 
 class Lecture(models.Model):
-    discipline = models.ManyToManyField(Discipline)  # Tags ou disciplines ?
-    title = models.CharField(max_length=32)
+    discipline = models.ManyToManyField(Discipline, blank=True)  # Tags ou disciplines ?
+    title = models.CharField(max_length=64)
     description = models.TextField()
     poster = models.CharField(max_length=32, default='', blank=True)
-    links = models.TextField(max_length=168, default='')
+    links = models.TextField(max_length=168, default='', blank=True)
     def __unicode__(self):
         return self.title
 
@@ -67,6 +67,8 @@ class News(models.Model):
     content = models.TextField()
     def __unicode__(self):
         return self.title
+    class Meta:
+        verbose_name_plural = "news"
 
 class Page(models.Model):
     name = models.SlugField()
