@@ -1,5 +1,5 @@
 # coding=utf8
-from gics.models import School, Lecture, Session, UserHistory, Discipline, News, Page, Document
+from gics.models import School, Lecture, Session, UserHistory, Discipline, News, Page, Document, Person
 from django.forms import Textarea
 from django.db import models
 from django.contrib import admin, messages
@@ -13,11 +13,14 @@ class SchoolAdmin(admin.ModelAdmin):
 class UserHistoryAdmin(admin.ModelAdmin):
     pass
 
+class PersonAdmin(admin.ModelAdmin):
+    pass
+
 class LectureAdmin(admin.ModelAdmin):
     pass
 
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ('lecture', 'school', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done')
+    list_display = ('lecture', 'school', 'speaker', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done')
     def get_queryset(self, request):
         qs = super(SessionAdmin, self).queryset(request)
         if request.user.is_superuser:
@@ -38,6 +41,7 @@ class DocumentAdmin(admin.ModelAdmin):
 
 admin.site.register(School, SchoolAdmin)
 admin.site.register(UserHistory, UserHistoryAdmin)
+admin.site.register(Person, PersonAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Session, SessionAdmin)
 admin.site.register(Discipline, DisciplineAdmin)

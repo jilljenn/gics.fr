@@ -8,8 +8,11 @@ class UserProfile(models.Model):  # Garantir le lien
     school_year = models.CharField(max_length=32)
     newsletter = models.BooleanField(default=True)
 
-class Phantom(models.Model):
+class Person(models.Model):
+    user = models.OneToOneField(User, blank=True, null=True)
     name = models.CharField(max_length=64)
+    def __unicode__(self):
+        return self.name
 
 class UserHistory(models.Model):
     user = models.ForeignKey(User)
@@ -51,7 +54,7 @@ class Session(models.Model):
     lecture = models.ForeignKey('Lecture')
     school = models.ForeignKey('School')
     date = models.DateTimeField()
-    speaker = models.ForeignKey(User)
+    speaker = models.ForeignKey(Person)
     details = models.TextField(default='', blank=True)
     slot_defined = models.BooleanField(default=False)
     media_printed = models.BooleanField(default=False)

@@ -1,7 +1,129 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>Bienvenue sur le site du GICS !</h1>
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head"><img src="/static/img/logo.jpg" /></h1>
+        <p class="splash-subhead">
+            Groupe pour l'initiative et la culture scientifiques
+        </p>
+        <p>
+            <a href="/faq/" class="pure-button pure-button-primary">En savoir plus</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    
+    <div class="content">
+        <h2 class="content-head is-center">Ateliers de découverte scientifique dans les lycées</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Le GICS
+                </h3>
+                <p>
+                    Le GICS est un groupe d'étudiants bénévoles qui animent des ateliers scientifiques dans des lycées.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Pour les étudiants
+                </h3>
+                <p>
+                    Chaque intervenant peut exposer le sujet de son choix dans un ou plusieurs lycées.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Pour les lycéens
+                </h3>
+                <p>
+                    Chaque lycéen a l'opportunité de découvrir des sujets scientifiques exposés par des passionnés du domaine et de leur poser ses questions.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Pour les professeurs
+                </h3>
+                <p>
+                    Nous souhaitons présenter à vos élèves des problèmes scientifiques divers afin d'illustrer la puissance des raisonnements qu'ils ont appris en classe.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <!-- <img class="pure-img-responsive" alt="File Icons" width="300" src="/img/common/file-icons.png"> -->
+            <div class="flag"><i class="fa fa-flag"></i></div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Soutenez-nous</h2>
+
+            <p>
+               Si vous êtes étudiant, faites découvrir le sujet de votre choix à des lycéens motivés.<br />
+               La diversité et l'originalité des sujets sont les bienvenues.
+            </p>
+            <p>
+               Si vous êtes lycéen, explorez les sujets des ateliers précédents et demandez à ce qu'un intervenant vienne dans votre classe.
+            </p>
+            <p>
+               Si vous êtes professeur, contactez-nous pour organiser une séance dans votre lycée.
+            </p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2 class="content-head is-center" id="contact">Contactez-nous</h2>
+
+        <div class="pure-g">
+            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                <form class="pure-form pure-form-stacked">
+                    <fieldset>
+
+                        <label for="name">Votre nom</label>
+                        <input id="name" type="text" placeholder="Votre nom">
+
+
+                        <label for="email">Votre mail</label>
+                        <input id="email" type="email" placeholder="Votre mail">
+
+                        <label for="password">Votre message</label>
+                        <textarea id="message" rows="3" placeholder="Votre message"></textarea>
+
+                        <button type="submit" class="pure-button">Envoyer</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <h4>Contactez-nous</h4>
+                <p>
+                    Pour toute demande de renseignement, utilisez le formulaire ci-contre pour nous contacter.
+                </p>
+
+                <h4>Pour plus d'informations</h4>
+                <p>
+                    Consultez la <a href="/faq">FAQ</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    {% include "footer.html" %}
+
+</div>
+
+
 {% for news in news_list %}
 <article>
     <header>
@@ -12,4 +134,5 @@
     <hr style="clear: both" />
 </article>
 {% endfor %}
+
 {% endblock %}

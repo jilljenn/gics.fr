@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^ateliers/$', SessionList.as_view()),
     url(r'^contact/$', 'gics.views.contact'),
     url(r'^faq/$', 'gics.views.faq'),
+    url(r'^forum/$', 'gics.views.forum'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

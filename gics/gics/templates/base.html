@@ -1,142 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+
     <title>GICS - Groupe pour l'initiative et la culture scientifiques</title>
-    <link rel="icon" href="/static/img/favicon.ico">
-    <script src="/static/js/jquery-latest.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/static/css/gics.css" />
+
+    
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  
+<!--<![endif]-->
+
+
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+
+
+  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/static/css/style-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/static/css/style.css">
+    <!--<![endif]-->
+  
+        <link rel="stylesheet" href="/static/css/bonus.css">
+
+
+    
+<!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+<![endif]-->
+
+
 </head>
 <body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
-                    <span class="sr-only">Ouvrir le menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img src="/static/img/logo.png" style="margin-top: -5px; margin-left: 10px;" />
-                </a>
-            </div>
 
-            <div class="collapse navbar-collapse" id="menu-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Le GICS <span class="caret"></span></a>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/">Actualités</a></li>
-                            <li><a href="/page/notre-action/">Notre action</a></li>
-                            <li><a href="/page/l-equipe/">L'équipe</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/page/historique/">Historique</a></li>
-                            <li><a href="/page/documents/">Documents</a></li>
-                            <li><a href="/page/communication/">Communication</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/page/nous-aider/">Nous aider</a></li>
-                            <li><a href="/page/partenaires/">Partenaires</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Lycéens <span class="caret"></span></a>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/page/assister-aux-seances/">Assister aux séances</a></li>
-                            <li><a href="/page/supports-des-cours/">Supports des cours</a></li>
-                            <li><a href="/ecoles/">Lycées partenaires</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Intervenants <span class="caret"></span></a>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/page/devenir-intervenant/">Devenir intervenant</a></li>
-                            <li><a href="/page/devenir-responsable-de-lycee/">Devenir responsable de lycée</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/page/ressources-pedagogiques/">Ressources pédagogiques</a></li>
-                            <li><a href="/page/ressources-pedagogiques/">Témoignages</a></li>
-                            <li><a href="/ateliers/">Les ateliers</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Communauté <span class="caret"></span></a>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/forum/">Forum</a></li>
-                            <li><a href="/page/citations/">Citations</a></li>
-                            <li><a href="/page/enigmes/">Énigmes</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/contact/">
-                            Contact
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/faq/">
-                            FAQ
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                {% block body %}{% endblock %}
-            </div>
-            <div class="col-sm-4">
-                <div>
-                    {% block aside %}
-                        <h4>Prochains ateliers</h4>
-                        {% if not next_sessions %}
-                           Il n'y a aucune séance en cours.
-                        {% else %}
-                            <ul>
-                            {% for session in next_sessions %}
-                                <li><strong><em>{{ session.lecture }}</em></strong> au {{ session.school }} par {{ session.speaker.first_name }} {{ session.speaker.last_name }}, le {{ session.date }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                       <hr />
-                    {% endblock %}
-                </div>
-                <div>
-                    <h4>Suivez-nous !</h4>
-                    <ul>
-                        <li><a href="https://www.facebook.com/gics.asso" target="_blank">Facebook</a></li>
-                        <li><a href="https://twitter.com/gics_asso" target="_blank">Twitter</a></li>
-                        <li><a href="http://www.linkedin.com/company/groupe-pour-l'initiative-et-la-culture-scientifiques-gics-" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://plus.google.com/116028341437164090594/posts" target="_blank">Google+</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+
+
+
+
+
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">GICS</a>
+
+        <ul>
+            <li class="pure-menu-selected"><a href="#">L'association</a></li>
+            <li><a href="/ecoles/">Lycéens</a></li>
+            <li><a href="/page/devenir-intervenant/">Intervenants</a></li>
+            <!-- <li><a href="/forum/">Communauté</a></li> -->
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
     </div>
-    <div style="height: 100px; display: block">
-    </div>
+</div>
 
-    <footer class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <address>
-                Groupe pour l'Initiative et la Culture Scientifiques – Association loi 1901<br />
-                11 rue Pierre-et-Marie-Curie<br />
-                75005 Paris
-            </address>
-        </div>
-    </footer>
-</body>
-</html>
+<!-- <div class="splash-container">
+    
+</div> -->
+
+{% block body %}{% endblock %}
+
+{% if request.path != '/' %}
+    {% include "footer.html" %}
+{% endif %}

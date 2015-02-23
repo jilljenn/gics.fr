@@ -26,6 +26,12 @@ def faq(request):
         'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
     })
 
+def forum(request):
+    return render(request, 'forum.html', {
+        'news_list': News.objects.order_by('-date')[:5],
+        'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
+    })
+
 class MarkdownView(DetailView):
     model = Page
     slug_field = 'name'

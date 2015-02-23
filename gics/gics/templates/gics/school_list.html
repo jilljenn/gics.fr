@@ -1,23 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>Lycées partenaires</h1>
-<hr />
-{% for school in object_list %}
-    <h4>{{ school.title }}</h4>
-    <address>
-    {{ school.address }}<br />
-    {{ school.postal_code }} {{ school.city }}
-    </address>
-{% endfor %}
-<h2>Écoles partenaires</h2>
-<ul>
-    <li>Centrale Paris</li>
-    <li>École normale supérieure</li>
-    <li>École normale supérieure de Cachan</li>
-    <li>École polytechnique</li>
-    <li>Université Paris 6 – Pierre et Marie Curie</li>
-</ul>
+<div class="static l-box pure-g">
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-5"></div>
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
+        <h1>Lycées partenaires</h1>
+        {% for school in object_list %}
+            <h4>{{ school.title }}</h4>
+            <address>
+            {{ school.address }}<br />
+            {{ school.postal_code }} {{ school.city }}
+            </address>
+        {% endfor %}
+        <h2>Écoles partenaires</h2>
+        <ul>
+            <li>Centrale Paris</li>
+            <li>École normale supérieure</li>
+            <li>École normale supérieure de Cachan</li>
+            <li>École polytechnique</li>
+            <li>Université Paris 6 – Pierre et Marie Curie</li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {% block aside %}

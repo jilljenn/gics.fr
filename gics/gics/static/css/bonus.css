@@ -1,0 +1,170 @@
+html, button, input, select, textarea, .pure-g [class*="pure-u"], .pure-g-r [class*="pure-u"] {
+    font-family: "Montserrat", sans-serif
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer {
+    background: #2e3234;
+    padding: 60px 0 60px 0;
+    color: #747474;
+    float: left;
+    width: 100%
+}
+
+footer a {
+    color: #b8b8b8;
+    font-weight: 300
+}
+
+footer h3 {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    margin-bottom: 17px;
+    font-weight: 300;
+}
+
+footer .footer-column {
+    float: left
+}
+
+footer .footer-column ul li {
+    margin-bottom: 7px
+}
+
+footer .footer-column ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out
+}
+
+footer .footer-column ul li a:hover {
+    color: #f1f1f1
+}
+
+footer #column-main {
+    width: 212px;
+    font-size: 15px
+}
+
+footer #column-main a {
+    color: #747474;
+    text-decoration: none;
+    display: block;
+    line-height: 1.4
+}
+
+footer #column-main a.cloud-icon {
+    text-indent: -9999px;
+    width: 61px;
+    height: 33px;
+    background-size: 61px 33px;
+    background: url("/assets/images/cloud-6a1216d2.svg") no-repeat;
+    display: block;
+    margin-bottom: 30px
+}
+
+footer #column-main #copyright {
+    margin-bottom: 10px
+}
+
+footer #column-main #made-in-ny {
+    margin-bottom: 22px
+}
+
+footer #column-main #privacy a {
+    color: #b8b8b8;
+    font-size: 14px;
+    font-weight: 300
+}
+
+footer #column-product {
+    width: 190px
+}
+
+footer #column-company {
+    width: 190px
+}
+
+footer #column-help {
+    width: 195px
+}
+
+footer #column-community {
+    width: 185px
+}
+
+footer #column-connect {
+    float: right
+}
+
+footer #column-connect ul li a {
+    background-image: url("/static/img/social.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.4em;
+}
+
+footer #column-connect ul li.blog a {
+    background-position: 0 -132px
+}
+
+footer #column-connect ul li.twitter a {
+    background-position: 0 5px
+}
+
+footer #column-connect ul li.facebook a {
+    background-position: 0 -20px
+}
+
+footer #column-connect ul li.linkedin a {
+    background-position: 0 -44px
+}
+
+footer #column-connect ul li.github a {
+    background-position: 0 -152px
+}
+
+footer #column-connect ul li.google a {
+    background-position: 0 -68px
+}
+
+footer #column-connect ul li.instagram a {
+    background-position: 0 -92px
+}
+
+footer #column-connect ul li.meetup a {
+    background-position: 0 -113px
+}
+
+footer #droplet-count {
+    text-align: center;
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #939393
+}
+
+.flag {
+    font-size: 180px;
+}
+
+.static {
+    padding-top: 4.2em;
+}
