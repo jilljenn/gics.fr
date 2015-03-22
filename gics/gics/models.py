@@ -11,11 +11,11 @@ class UserProfile(models.Model):  # Garantir le lien
 class Person(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
     name = models.CharField(max_length=64)
-    comments = models.TextField()
+    comments = models.TextField(blank=True, null=True)
     mail = models.CharField(max_length=128)
     school = models.ForeignKey('School')
     majors = models.ManyToManyField('Discipline')
-    def __unicode__(self):
+    def __str__(self):
         return self.name
     class Meta:
         verbose_name_plural = "people"
@@ -30,7 +30,7 @@ class UserHistory(models.Model):
         ('offered', 'Don'),
     ))
     donation = models.DecimalField(max_digits=16, decimal_places=2, default=0)
-    def __unicode__(self):
+    def __str__(self):
         return '%s %s' % (self.user, self.action)
 
 class School(models.Model):
@@ -39,12 +39,12 @@ class School(models.Model):
     postal_code = models.CharField(max_length=5, blank=True, null=True)
     city = models.CharField(max_length=32, blank=True, null=True)
     manager = models.ForeignKey(User, blank=True, null=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 class Discipline(models.Model):
     title = models.CharField(max_length=64)
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 class Lecture(models.Model):
@@ -53,7 +53,7 @@ class Lecture(models.Model):
     description = models.TextField()
     poster = models.CharField(max_length=32, default='', blank=True)
     links = models.TextField(max_length=168, default='', blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 class Session(models.Model):
@@ -66,7 +66,7 @@ class Session(models.Model):
     media_printed = models.BooleanField(default=False)
     feedback_collected = models.BooleanField(default=False)
     debrief_done = models.BooleanField(default=False)
-    def __unicode__(self):
+    def __str__(self):
         return self.lecture.title
 
 class News(models.Model):
@@ -74,7 +74,7 @@ class News(models.Model):
     date = models.DateTimeField()
     author = models.ForeignKey(User)
     content = models.TextField()
-    def __unicode__(self):
+    def __str__(self):
         return self.title
     class Meta:
         verbose_name_plural = "news"
@@ -82,10 +82,10 @@ class News(models.Model):
 class Page(models.Model):
     name = models.SlugField()
     markdown = models.TextField()
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Document(models.Model):
     content = models.FileField(upload_to='files')
-    def __unicode__(self):
+    def __str__(self):
         return self.content.name
