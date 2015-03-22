@@ -11,11 +11,17 @@ class UserProfile(models.Model):  # Garantir le lien
 class Person(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
     name = models.CharField(max_length=64)
+    comments = models.TextField()
+    mail = models.CharField(max_length=128)
+    school = models.ForeignKey('School')
+    majors = models.ManyToManyField('Discipline')
     def __unicode__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "people"
 
 class UserHistory(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(Person)
     date = models.DateField()
     action = models.CharField(max_length=15, choices=(
         ('joined', 'Adhésion'),
@@ -29,10 +35,10 @@ class UserHistory(models.Model):
 
 class School(models.Model):
     title = models.CharField(max_length=64)
-    address = models.TextField()
-    postal_code = models.CharField(max_length=5)
-    city = models.CharField(max_length=32)
-    manager = models.ForeignKey(User)
+    address = models.TextField(blank=True, null=True)
+    postal_code = models.CharField(max_length=5, blank=True, null=True)
+    city = models.CharField(max_length=32, blank=True, null=True)
+    manager = models.ForeignKey(User, blank=True, null=True)
     def __unicode__(self):
         return self.title
 
