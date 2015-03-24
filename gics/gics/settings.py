@@ -86,5 +86,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/srv/http/gics/static/'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/Users/jin/Sites/gics/gics/'
