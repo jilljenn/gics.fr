@@ -89,3 +89,9 @@ class Document(models.Model):
     content = models.FileField(upload_to='files')
     def __str__(self):
         return self.content.name
+
+class Question(models.Model):
+    statement = models.CharField(max_length=512)
+    answer = models.TextField()
+    def __str__(self):
+        return self.statement

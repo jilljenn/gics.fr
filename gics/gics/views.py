@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404
-from gics.models import News, Session, Page, School, Session, Lecture
+from gics.models import News, Session, Page, School, Session, Lecture, Question
 from datetime import datetime
 from markdown import markdown
 
@@ -63,3 +63,6 @@ class NewsList(ListView):
 
 class NewsDetail(DetailView):
     model = News
+
+class QuestionList(ListView):
+    model = Question

@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
-from gics.views import MarkdownView, SchoolList, SessionList, SchoolDetail, LectureDetail, NewsList, NewsDetail
+from gics.views import MarkdownView, SchoolList, SessionList, SchoolDetail, LectureDetail, NewsList, NewsDetail, QuestionList
 
 from django.contrib import admin
 admin.autodiscover()
@@ -22,6 +22,6 @@ urlpatterns = patterns('',
     url(r'^news/$', NewsList.as_view()),
     url(r'^news/(?P<pk>\d+)$', NewsDetail.as_view()),
     url(r'^contact/$', 'gics.views.contact'),
-    url(r'^faq/$', 'gics.views.faq'),
+    url(r'^faq/$', QuestionList.as_view()),
     url(r'^forum/$', 'gics.views.forum'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
