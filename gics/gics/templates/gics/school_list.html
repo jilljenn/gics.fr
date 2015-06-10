@@ -6,7 +6,7 @@
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
         <h1>Lycées partenaires</h1>
         {% for school in object_list %}
-            <h4>{{ school.title }}</h4>
+            <h4><a href="/ecoles/{{ school.id }}">{{ school.title }}</a></h4>
             <address>
             {{ school.address }}<br />
             {{ school.postal_code }} {{ school.city }}

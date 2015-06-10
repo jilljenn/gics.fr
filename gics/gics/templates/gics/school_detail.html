@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="static l-box pure-g">
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-5"></div>
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
+        <h1>{{ object.title }}</h1>
+        <address>
+        {{ object.address }}<br />
+        {{ object.postal_code }} {{ object.city }}
+        </address>
+        Manager : {{ object.manager.first_name }} {{ object.manager.last_name }}
+
+        <h2>Séances</h2>
+        <ul>
+        {% for session in object.session_set.all %}
+            <li><a href="/ateliers/{{ session.lecture.id }}">{{ session }}</a> par {{ session.speaker }}<br />
+            {{ session.date }}<hr /></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block aside %}
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
-from gics.views import MarkdownView, SchoolList, SessionList
+from gics.views import MarkdownView, SchoolList, SessionList, SchoolDetail, LectureDetail
 
 from django.contrib import admin
 admin.autodiscover()
@@ -16,7 +16,9 @@ urlpatterns = patterns('',
     url(r'^page/(?P<slug>[\w/-]+)/$', MarkdownView.as_view()),
     url(r'^page/(?P<slug>[\w/-]+)/$', MarkdownView.as_view()),
     url(r'^ecoles/$', SchoolList.as_view()),
+    url(r'^ecoles/(?P<pk>\d+)$', SchoolDetail.as_view()),
     url(r'^ateliers/$', SessionList.as_view()),
+    url(r'^ateliers/(?P<pk>\d+)$', LectureDetail.as_view()),
     url(r'^contact/$', 'gics.views.contact'),
     url(r'^faq/$', 'gics.views.faq'),
     url(r'^forum/$', 'gics.views.forum'),
