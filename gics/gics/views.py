@@ -57,3 +57,9 @@ class SessionList(ListView):
 
 class LectureDetail(DetailView):
     model = Lecture
+
+class NewsList(ListView):
+    model = News
+
+class NewsDetail(DetailView):
+    model = News
