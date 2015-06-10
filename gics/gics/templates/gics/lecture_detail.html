@@ -15,6 +15,12 @@
             <h2>Liens</h2>
             {{ object.links|safe }}
         {% endif %}
+        <h2>Séances</h2>
+        {% for session in object.session_set.all %}
+            {{ session.school }}, le {{ session.date }} par {{ session.speaker }}
+        {% empty %}
+            Il n'y a pas encore de séance prévue pour cet atelier.
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
