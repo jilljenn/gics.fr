@@ -7,7 +7,7 @@
         <h2 class="content-head is-center">FAQ</h2>
         {% for question in object_list %}
             <h3>{{ question.statement }}</h3>
-            {{ question.answer }}
+            {{ question.answer|safe }}
         {% endfor %}
     </div>
 </div>

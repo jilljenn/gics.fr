@@ -7,7 +7,7 @@
         <h1>{{ object.title }}</h1>
         <hr />
         Disciplines : {{ object.discipline.all }}
-        <p class="well">{{ object.description }}</p>
+        <p class="well">{{ object.description|safe }}</p>
         <h2>Liens</h2>
         {{ object.links }}
     </div>

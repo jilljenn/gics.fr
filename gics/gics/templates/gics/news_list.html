@@ -11,7 +11,7 @@
             <h3>{{ news.title }}</h3>
             <h4>Le {{ news.date }} – {{ session.school }}</h4>
             <span class="author">Par {{ news.author.first_name }} {{ news.author.last_name }}</span>
-            <p class="well">{{ news.content }}</p>
+            <p class="well">{{ news.content|safe }}</p>
         </article>
         {% endfor %}
     </div>
