@@ -6,10 +6,15 @@
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
         <h1>{{ object.title }}</h1>
         <hr />
-        Disciplines : {{ object.discipline.all }}
+        Disciplines :
+        {% for discipline in object.discipline.all %}
+            <a href="/ateliers/{{ discipline.slug }}/">{{ discipline }}</a>
+        {% endfor %}
         <p class="well">{{ object.description|safe }}</p>
-        <h2>Liens</h2>
-        {{ object.links }}
+        {% if object.links %}
+            <h2>Liens</h2>
+            {{ object.links|safe }}
+        {% endif %}
     </div>
 </div>
 {% endblock %}

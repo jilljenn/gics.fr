@@ -28,7 +28,7 @@ class SessionAdmin(admin.ModelAdmin):
         return qs.filter(school__manager=request.user)
 
 class DisciplineAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'slug')
 
 class NewsAdmin(admin.ModelAdmin):
     pass
