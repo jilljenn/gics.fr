@@ -32,6 +32,8 @@ class UserHistory(models.Model):
     donation = models.DecimalField(max_digits=16, decimal_places=2, default=0)
     def __str__(self):
         return '%s %s' % (self.user, self.action)
+    class Meta:
+        verbose_name_plural = "user histories"
 
 class School(models.Model):
     title = models.CharField(max_length=64)
