@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="static l-box pure-g">
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-5"></div>
+    <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
+        <h1>Ajouter en masse</h1>
+        {% if message %}
+            <p class="pure-alert pure-alert-success">{{ message|safe }}</p>
+        {% endif %}
+        <form id="register" action="/register/" method="post">
+        {% csrf_token %}
+        <textarea name="contacts"></textarea>
+        <p align="right">
+        <button class="pure-button">Enregistrer</button>
+        </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
