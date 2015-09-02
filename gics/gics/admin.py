@@ -14,7 +14,7 @@ class UserHistoryAdmin(admin.ModelAdmin):
     pass
 
 class PersonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('get_name', 'mail', 'phone_number', 'comments')
 
 class LectureAdmin(admin.ModelAdmin):
     pass

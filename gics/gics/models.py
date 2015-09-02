@@ -10,15 +10,23 @@ class UserProfile(models.Model):  # Garantir le lien
 
 class Person(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
-    name = models.CharField(max_length=64)
+    first_name = models.CharField(max_length=64)
+    surname = models.CharField(max_length=64, blank=True, null=True)
+    phone_number = models.CharField(max_length=64, blank=True, null=True)
     comments = models.TextField(blank=True, null=True)
     mail = models.CharField(max_length=128)
-    school = models.ForeignKey('School')
+    school = models.ForeignKey('School', blank=True, null=True)
     majors = models.ManyToManyField('Discipline')
-    def __str__(self):
-        return self.name
+    def __unicode__(self):
+        return self.first_name if not self.surname else '%s %s' % (self.first_name, self.surname)
+    def get_name(self):
+        return unicode(self)
     class Meta:
         verbose_name_plural = "people"
+
+class Note(models.Model):
+    content = models.CharField(max_length=128)
+    date = models.DateTimeField(auto_now=True)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(Person)
@@ -41,13 +49,13 @@ class School(models.Model):
     postal_code = models.CharField(max_length=5, blank=True, null=True)
     city = models.CharField(max_length=32, blank=True, null=True)
     manager = models.ForeignKey(User, blank=True, null=True)
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 class Discipline(models.Model):
     slug = models.SlugField(max_length=64)
     title = models.CharField(max_length=64)
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 class Lecture(models.Model):
@@ -56,7 +64,7 @@ class Lecture(models.Model):
     description = models.TextField()
     poster = models.CharField(max_length=32, default='', blank=True)
     links = models.TextField(default='', blank=True)
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 class Session(models.Model):
