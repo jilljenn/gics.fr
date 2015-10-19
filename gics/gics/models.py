@@ -27,6 +27,8 @@ class Person(models.Model):
 class Note(models.Model):
     content = models.CharField(max_length=128)
     date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.content
 
 class UserHistory(models.Model):
     user = models.ForeignKey(Person)
