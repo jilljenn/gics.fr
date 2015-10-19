@@ -7,9 +7,6 @@
         <p class="splash-subhead">
             Groupe pour l'initiative et la culture scientifiques
         </p>
-        <p>
-            <a href="/faq/" class="pure-button pure-button-primary">En savoir plus</a>
-        </p>
     </div>
 </div>
 
@@ -57,6 +54,9 @@
                 </p>
             </div>
         </div>
+        <p align="center">
+            <a href="/faq/" class="pure-button">En savoir plus</a>
+        </p>
     </div>
 
     <div class="ribbon l-box-lrg pure-g">
@@ -122,17 +122,5 @@
     {% include "footer.html" %}
 
 </div>
-
-
-{% for news in news_list %}
-<article>
-    <header>
-        <h2>{{ news.title|safe }}</h2>
-        <span class="date">Le {{ news.date }}, par {{ news.author.first_name }}</span>
-    </header>
-    <p>{{ news.content|safe }}</p>
-    <hr style="clear: both" />
-</article>
-{% endfor %}
 
 {% endblock %}

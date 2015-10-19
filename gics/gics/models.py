@@ -66,6 +66,11 @@ class Lecture(models.Model):
     links = models.TextField(default='', blank=True)
     def __str__(self):
         return self.title
+    def get_discipline_slugs(self):
+        slugs = []
+        for discipline in self.discipline.all():
+            slugs.append(discipline.slug)
+        return ' ' + ' '.join(slugs)
 
 class Session(models.Model):
     lecture = models.ForeignKey('Lecture')
