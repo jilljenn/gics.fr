@@ -10,11 +10,12 @@ class SessionInline(admin.TabularInline):
 class SchoolAdmin(admin.ModelAdmin):
     inlines = [SessionInline,]
 
-class UserHistoryAdmin(admin.ModelAdmin):
-    pass
+class UserHistoryInline(admin.TabularInline):
+    model = UserHistory
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('get_name', 'mail', 'phone_number', 'comments')
+    inlines = [UserHistoryInline,]
 
 class LectureAdmin(admin.ModelAdmin):
     pass
@@ -46,7 +47,6 @@ class NoteAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(School, SchoolAdmin)
-admin.site.register(UserHistory, UserHistoryAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Session, SessionAdmin)
