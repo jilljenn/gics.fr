@@ -48,6 +48,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
 <![endif]-->
 
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </head>
 <body>
@@ -60,21 +61,21 @@
 
 
 
-<div class="header">
+<nav class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="/">GICS</a>
 
         <ul>
-            <li class="pure-menu-selected"><a href="#">L'association</a></li>
+            <li><a href="/">L'association</a></li>
             <li><a href="/news/">Actualités</a></li>
             <li><a href="/ateliers/">Ateliers</a></li>
             <li><a href="/page/devenir-intervenant/">Intervenants</a></li>
             <!-- <li><a href="/forum/">Communauté</a></li> -->
             <li><a href="/#contact">Contact</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/faq/">FAQ</a></li>
         </ul>
     </div>
-</div>
+</nav>
 
 <!-- <div class="splash-container">
     
@@ -95,6 +96,10 @@
   ga('create', 'UA-66920925-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+
+<script>
+    $("nav [href='{{ request.path }}']").parents("li").addClass("pure-menu-selected");
 </script>
 
 </body>
