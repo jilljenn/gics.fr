@@ -91,4 +91,4 @@ STATIC_ROOT = '/srv/http/gics/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/Users/jin/Sites/gics/gics/'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # TODO only debug
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # TODO only debug

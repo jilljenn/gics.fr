@@ -6,3 +6,4 @@ db.sqlite3
 files
 venv
 v3
+secret.py
