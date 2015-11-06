@@ -111,6 +111,8 @@ class MarkdownView(DetailView):
         return {'html': markdown(page.markdown), 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]}
 
 class SchoolList(ListView):
+    def get_queryset(self):
+        return School.objects.filter(school_type='highschool')
     model = School
 
 class SchoolDetail(DetailView):

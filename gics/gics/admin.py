@@ -8,6 +8,28 @@ class SessionInline(admin.TabularInline):
     model = Session
 
 class SchoolAdmin(admin.ModelAdmin):
+    list_display = ('title', 'manager', 'school_type')
+    list_filter = ('school_type',)
+    actions = ['make_highschool', 'make_institution']
+
+    def make_highschool(self, request, queryset):
+        rows_updated = queryset.update(school_type='highschool')
+        if rows_updated == 1:
+            message_bit = "1 établissement a"
+        else:
+            message_bit = "%s établissements ont" % rows_updated
+        self.message_user(request, "%s été mis à jour." % message_bit)
+    make_highschool.short_description = "Changer le type en lycée"
+
+    def make_institution(self, request, queryset):
+        rows_updated = queryset.update(school_type='institution')
+        if rows_updated == 1:
+            message_bit = "1 établissement a"
+        else:
+            message_bit = "%s établissements ont" % rows_updated
+        self.message_user(request, "%s été mis à jour." % message_bit)
+    make_institution.short_description = "Changer le type en institution"
+
     inlines = [SessionInline,]
 
 class UserHistoryInline(admin.TabularInline):

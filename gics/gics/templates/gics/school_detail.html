@@ -17,6 +17,8 @@
         {% for session in object.session_set.all %}
             <li><a href="/ateliers/{{ session.lecture.id }}">{{ session }}</a> par {{ session.speaker }}<br />
             {{ session.date }}<hr /></li>
+        {% empty %}
+            Il n'y a pas de séance pour le moment.
         {% endfor %}
         </ul>
     </div>

@@ -51,6 +51,10 @@ class School(models.Model):
     postal_code = models.CharField(max_length=5, blank=True, null=True)
     city = models.CharField(max_length=32, blank=True, null=True)
     manager = models.ForeignKey(User, blank=True, null=True)
+    school_type = models.CharField(max_length=11, choices=(
+        ('highschool', 'Lycée'),
+        ('institution', 'Institution'),
+    ), default='institution')
     def __str__(self):
         return self.title
 

@@ -6,7 +6,9 @@
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-5"></div>
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
         <h1>Ateliers</h1>
-        Filtrer :
+        Filtrer :<br />
+        <input type="checkbox" id="checker" checked value="tout décocher" /> Tout cocher ?
+        <hr />
         <div id="disciplines">
         {% for discipline in disciplines %}
             <label><input type="checkbox" value="{{ discipline.slug }}" checked onclick="updateLectures()"> {{ discipline }}</label> 
@@ -31,6 +33,11 @@ $('.grid').isotope({
   // options
   itemSelector: '.grid-item',
   layoutMode: 'vertical'
+});
+
+$("#checker").change(function () {
+  $("input:checkbox").prop('checked', $(this).prop("checked"));
+  updateLectures();
 });
 </script>
 {% endblock %}
