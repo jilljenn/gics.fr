@@ -146,28 +146,34 @@ a.pure-button-primary {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
     height: 100%;
     margin: auto;
     /* position: absolute; */
     /* top: 50px; left: 0; bottom: 0; right: 0; */
     text-align: center;
-    text-transform: uppercase;
 }
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    width: 400px;
+    /* width: 400px;
     margin: auto;
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: 20px solid white;
+    border: 20px solid white; */
     /* padding: 1em 1.6em; */
-    font-weight: 100;
+    /* font-weight: 100;
     border-radius: 10px;
     line-height: 1em;
-    background: white;
+    background: white; */
+    /* margin: 3em 0; */
+    padding: 5em 0;
+
+}
+
+.splash h1 {
+    color: white;
+    line-height: 1.2em;
 }
 
 .splash-head img {
@@ -258,12 +264,12 @@ a.pure-button-primary {
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 50%;
+        /* width: 50%; */
         height: 100%;
     }
 
     .splash-head {
-        font-size: 250%;
+        font-size: 100%;
     }
 
 
@@ -282,7 +288,7 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 100%;
     }
 }
 
