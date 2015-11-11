@@ -14,6 +14,9 @@ import re
 
 def index(request):
     return render(request, 'index.html', {
+        'nb_sessions': Session.objects.count(),
+        'nb_schools': School.objects.filter(school_type='highschool').count(),
+        'nb_users': Person.objects.count(),
         'news_list': News.objects.order_by('-date')[:5],
         'mail_choices': MAIL_CHOICES,
         'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]

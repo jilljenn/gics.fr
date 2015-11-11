@@ -3,9 +3,9 @@ html, button, input, select, textarea, .pure-g [class*="pure-u"], .pure-g-r [cla
 }
 
 ul, li {
-    margin: 0;
+    /* margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none; */
 }
 
 footer {
