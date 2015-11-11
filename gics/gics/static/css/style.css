@@ -319,3 +319,7 @@ a, a:active, a:focus {
 article h1 {
     line-height: 1.2em;
 }
+
+.description {
+    text-align: center;
+}

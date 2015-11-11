@@ -113,7 +113,7 @@ class MarkdownView(DetailView):
             raise Http404"""
     def get_context_data(self, **kwargs):
         page = super(MarkdownView, self).get_object()
-        return {'html': markdown(page.markdown), 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]}
+        return {'name': page.name, 'html': markdown(page.markdown), 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5], 'mail_choices': MAIL_CHOICES}
 
 class SchoolList(ListView):
     def get_queryset(self):

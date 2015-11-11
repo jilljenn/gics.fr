@@ -91,29 +91,7 @@
 
         <div class="pure-g">
             <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked" action="/contact/" method="POST">
-                    {% csrf_token %}
-                    <fieldset>
-
-                        <label for="name">Que souhaitez-vous faire ?</label>
-                        <select style="width: 100%" id="action" name="action" type="text" placeholder="Votre nom">
-                        {% for choice_id, description, _ in mail_choices %}
-                            <option value="{{ choice_id }}">{{ description }}</option>
-                        {% endfor %}
-                        </select>
-
-                        <label for="name">Votre nom</label>
-                        <input id="name" name="name" type="text" placeholder="Votre nom">
-
-                        <label for="email">Votre mail</label>
-                        <input id="email" name="email" type="email" placeholder="Votre mail">
-
-                        <label for="password">Votre message</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Votre message"></textarea>
-
-                        <button type="submit" class="pure-button">Envoyer</button>
-                    </fieldset>
-                </form>
+                {% include "contact_form.html" %}
             </div>
 
             <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
