@@ -10,7 +10,7 @@ ul, li {
 
 footer {
     background: #2e3234;
-    padding: 60px 0 60px 0;
+    /* padding: 60px 0 60px 0; */
     color: #747474;
     float: left;
     width: 100%
@@ -181,4 +181,16 @@ footer #droplet-count {
 figure img {
     max-width: ;
     width: 100%;
+}
+
+article h1 {
+    margin-bottom: 0;
+}
+
+article p {
+    margin-bottom: 5em;
+}
+
+a {
+    text-decoration: none;
 }
