@@ -4,11 +4,22 @@
 <div class="static l-box pure-g">
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-5"></div>
     <div class="pure-u-1 pure-u-md-1 pure-u-lg-3-5">
-        <h1>{{ object.title }}</h1>
-        <address>
-        {{ object.address }}<br />
-        {{ object.postal_code }} {{ object.city }}
-        </address>
+        {% if object.picture %}
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-2">
+                <h1>{{ object.title }}</h1>
+                <address>
+                    {{ object.address }}<br />
+                    {{ object.postal_code }} {{ object.city }}
+                </address>
+            </div>
+            <div class="pure-u-1 pure-u-md-1 pure-u-lg-1-2">
+                <figure>
+                    <img src="/media/{{ object.picture }}" alt="illustration {{ object.title }}" />
+                </figure>            
+            </div>
+        </div>
+        {% endif %}
         <br />
         Responsable lycée : {{ object.manager.first_name }} {{ object.manager.last_name }}
 

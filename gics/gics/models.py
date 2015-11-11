@@ -55,6 +55,7 @@ class School(models.Model):
         ('highschool', 'Lycée'),
         ('institution', 'Institution'),
     ), default='institution')
+    picture = models.ForeignKey('Document', blank=True, null=True)
     def __str__(self):
         return self.title
 

@@ -3,6 +3,7 @@ from gics.models import School, Lecture, Session, UserHistory, Discipline, News,
 from django.forms import Textarea
 from django.db import models
 from django.contrib import admin, messages
+from pagedown.widgets import AdminPagedownWidget
 
 class SessionInline(admin.TabularInline):
     model = Session
@@ -57,7 +58,9 @@ class NewsAdmin(admin.ModelAdmin):
     pass
 
 class PageAdmin(admin.ModelAdmin):
-    pass
+    formfield_overrides = {
+        models.TextField: {'widget': AdminPagedownWidget},
+    }
 
 class DocumentAdmin(admin.ModelAdmin):
     pass

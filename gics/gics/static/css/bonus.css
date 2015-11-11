@@ -177,3 +177,8 @@ footer #droplet-count {
 .description .pure-button {
     width: 100%;
 }
+
+figure img {
+    max-width: ;
+    width: 100%;
+}
