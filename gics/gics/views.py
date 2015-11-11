@@ -9,19 +9,24 @@ from django.core.mail import send_mail
 from gics.models import News, Session, Page, School, Session, Lecture, Question, Discipline, Note, Person
 from datetime import datetime
 from markdown import markdown
-from secret import CONTACT_MAIL
+from secret import MAIL_CHOICES
 import re
 
 def index(request):
     return render(request, 'index.html', {
         'news_list': News.objects.order_by('-date')[:5],
+        'mail_choices': MAIL_CHOICES,
         'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
     })
 
 def contact(request):
     if request.POST:
         from_mail = request.POST.get('email')
-        send_mail('[Contact] GICS', '%s <%s> a envoyé un message via le site :\n\n%s' % (request.POST.get('name'), from_mail, request.POST.get('message')), from_mail, [CONTACT_MAIL], fail_silently=True)
+        to_mail = None
+        for choice_id, _, mail in MAIL_CHOICES:
+            if choice_id == request.POST.get('action'):
+                to_mail = mail
+        send_mail('[Contact] GICS', '%s <%s> a envoyé un message via le site :\n\n%s' % (request.POST.get('name'), from_mail, request.POST.get('message')), from_mail, [to_mail], fail_silently=True)
     return render(request, 'contact.html', {
         'news_list': News.objects.order_by('-date')[:5],
         'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]

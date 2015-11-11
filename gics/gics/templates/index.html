@@ -26,7 +26,7 @@
                     <i class="fa fa-rocket"></i>
                     Le GICS
                 </h3>
-                <a href="/faq/" class="pure-button">En savoir plus</a>
+                <a href="/page/gics/" class="pure-button">Qui sommes-nous ?</a>
                 <p>
                     Nous sommes un groupe d'étudiants bénévoles qui animent des ateliers scientifiques dans des lycées.
                 </p>
@@ -36,7 +36,7 @@
                     <i class="fa fa-mobile"></i>
                     Pour les étudiants
                 </h3>
-                <a href="/ateliers/" class="pure-button">Proposer une séance</a>
+                <a href="/page/devenir-intervenant/" class="pure-button">Devenir intervenant</a>
                 <p>
                     Exposez le sujet de votre choix dans un ou plusieurs lycées.
                 </p>
@@ -46,7 +46,7 @@
                     <i class="fa fa-th-large"></i>
                     Pour les lycéens
                 </h3>
-                <a href="/ateliers/" class="pure-button">Voir les ateliers</a>
+                <a href="/ateliers/" class="pure-button">Voir tous les ateliers</a>
                 <p>
                     Découvrez des sujets scientifiques exposés par des passionnés du domaine et posez-leur vos questions.
                 </p>
@@ -56,9 +56,9 @@
                     <i class="fa fa-check-square-o"></i>
                     Pour les professeurs
                 </h3>
-                <a href="/contact/" class="pure-button">Demander une séance</a>
+                <a href="/contact/" class="pure-button">Demander un atelier</a>
                 <p>
-                    Demandez souhaitons présenter à vos élèves des problèmes scientifiques divers afin d'illustrer la puissance des raisonnements qu'ils ont appris en classe.
+                    Nous souhaitons présenter à vos élèves des problèmes scientifiques divers afin d'illustrer la puissance des raisonnements qu'ils ont appris en classe.
                 </p>
             </div>
         </div>
@@ -95,9 +95,15 @@
                     {% csrf_token %}
                     <fieldset>
 
+                        <label for="name">Que souhaitez-vous faire ?</label>
+                        <select style="width: 100%" id="action" name="action" type="text" placeholder="Votre nom">
+                        {% for choice_id, description, _ in mail_choices %}
+                            <option value="{{ choice_id }}">{{ description }}</option>
+                        {% endfor %}
+                        </select>
+
                         <label for="name">Votre nom</label>
                         <input id="name" name="name" type="text" placeholder="Votre nom">
-
 
                         <label for="email">Votre mail</label>
                         <input id="email" name="email" type="email" placeholder="Votre mail">
