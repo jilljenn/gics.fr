@@ -7,10 +7,6 @@
         <h1>Lycées partenaires</h1>
         {% for school in object_list %}
             <h4><a href="/ecoles/{{ school.id }}">{{ school.title }}</a></h4>
-            <address>
-            {{ school.address }}<br />
-            {{ school.postal_code }} {{ school.city }}
-            </address>
         {% endfor %}
         <h2>Écoles partenaires</h2>
         <ul>
