@@ -2,6 +2,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    /* margin: 0; */
+}
+
+html {
+    height: 100%;
 }
 
 /*
@@ -13,6 +18,7 @@ body {
     color: #7f8c8d;
     font-size: 13px;
     padding-top: 4em;
+    height: 100%;
 }
 
 h1,
@@ -323,4 +329,19 @@ article h1 {
 
 .description {
     text-align: center;
+}
+
+.body {
+    min-height: 100%;
+    margin-bottom: -3em;
+}
+
+.body:after {
+    /* content: ""; */
+    display: block;
+    background: red;
+}
+
+footer, .static:after {
+    height: 3em;
 }

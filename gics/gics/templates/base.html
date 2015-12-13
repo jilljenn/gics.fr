@@ -78,8 +78,9 @@
 <!-- <div class="splash-container">
     
 </div> -->
-
-{% block body %}{% endblock %}
+<div class="body">
+    {% block body %}{% endblock %}
+</div>
 
 {% if request.path != '/' %}
     {% include "footer.html" %}
