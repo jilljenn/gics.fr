@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.core.mail import send_mail
 from gics.models import News, Session, Page, School, Session, Lecture, Question, Discipline, Note, Person
@@ -19,20 +20,26 @@ def index(request):
         'nb_users': Person.objects.count(),
         'news_list': News.objects.order_by('-date')[:5],
         'mail_choices': MAIL_CHOICES,
-        'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
+        # 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
     })
 
 def contact(request):
     if request.POST:
         from_mail = request.POST.get('email')
-        to_mail = None
-        for choice_id, _, mail in MAIL_CHOICES:
-            if choice_id == request.POST.get('action'):
-                to_mail = mail
-        send_mail('[Contact] GICS', '%s <%s> a envoyé un message via le site :\n\n%s' % (request.POST.get('name'), from_mail, request.POST.get('message')), from_mail, [to_mail], fail_silently=True)
+        name = request.POST.get('name')
+        message = request.POST.get('message')
+        action = request.POST.get('action')
+        if any(not field for field in [from_mail, name, message, action]):
+            messages.error(request, 'Veuillez remplir tous les champs')
+        else:
+            to_mail = None
+            for choice_id, _, mail in MAIL_CHOICES:
+                if choice_id == action:
+                    to_mail = mail
+            send_mail('[Contact] GICS', '%s <%s> a envoyé un message via le site :\n\n%s' % (name, from_mail, message), from_mail, [to_mail], fail_silently=True)
+            messages.success(request, 'Votre message a bien été envoyé. Nous vous répondrons au plus vite.')
     return render(request, 'contact.html', {
-        'news_list': News.objects.order_by('-date')[:5],
-        'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
+        'mail_choices': MAIL_CHOICES
     })
 
 def register(request):
