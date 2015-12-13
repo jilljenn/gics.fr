@@ -15,7 +15,7 @@ import re
 
 def index(request):
     return render(request, 'index.html', {
-        'nb_sessions': Session.objects.count(),
+        'nb_sessions': 121 # Session.objects.count(),
         'nb_schools': School.objects.filter(school_type='highschool').count(),
         'nb_users': Person.objects.count(),
         'news_list': News.objects.order_by('-date')[:5],
