@@ -9,8 +9,8 @@ class SessionInline(admin.TabularInline):
     model = Session
 
 class SchoolAdmin(admin.ModelAdmin):
-    list_display = ('title', 'manager', 'school_type')
-    list_filter = ('school_type',)
+    list_display = ['title', 'manager', 'school_type']
+    list_filter = ['school_type']
     actions = ['make_highschool', 'make_institution']
 
     def make_highschool(self, request, queryset):
@@ -37,7 +37,8 @@ class UserHistoryInline(admin.TabularInline):
     model = UserHistory
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('get_name', 'mail', 'phone_number', 'comments')
+    list_display = ['get_name', 'mail', 'phone_number', 'comments', 'is_speaker']
+    list_filter = ['is_speaker']
     inlines = [UserHistoryInline,]
 
 class LectureAdmin(admin.ModelAdmin):

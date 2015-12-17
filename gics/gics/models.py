@@ -2,11 +2,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class UserProfile(models.Model):  # Garantir le lien
     user = models.OneToOneField(User)
     school = models.ForeignKey('School')
     school_year = models.CharField(max_length=32)
     newsletter = models.BooleanField(default=True)
+
 
 class Person(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
@@ -17,6 +19,7 @@ class Person(models.Model):
     mail = models.CharField(max_length=128)
     school = models.ForeignKey('School', blank=True, null=True)
     majors = models.ManyToManyField('Discipline', blank=True)
+    is_speaker = models.BooleanField(default=False)
     def __str__(self):
         return self.first_name if not self.surname else '%s %s' % (self.first_name, self.surname)
     def get_name(self):
@@ -24,11 +27,13 @@ class Person(models.Model):
     class Meta:
         verbose_name_plural = "people"
 
+
 class Note(models.Model):
     content = models.CharField(max_length=128)
     date = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.content
+
 
 class UserHistory(models.Model):
     user = models.ForeignKey(Person)
@@ -45,6 +50,7 @@ class UserHistory(models.Model):
     class Meta:
         verbose_name_plural = "user histories"
 
+
 class School(models.Model):
     title = models.CharField(max_length=64)
     address = models.TextField(blank=True, null=True)
@@ -59,11 +65,13 @@ class School(models.Model):
     def __str__(self):
         return self.title
 
+
 class Discipline(models.Model):
     slug = models.SlugField(max_length=64)
     title = models.CharField(max_length=64)
     def __str__(self):
         return self.title
+
 
 class Lecture(models.Model):
     discipline = models.ManyToManyField(Discipline, blank=True)  # Tags ou disciplines ?
@@ -79,6 +87,7 @@ class Lecture(models.Model):
             slugs.append(discipline.slug)
         return ' ' + ' '.join(slugs)
 
+
 class Session(models.Model):
     lecture = models.ForeignKey('Lecture')
     school = models.ForeignKey('School')
@@ -92,6 +101,10 @@ class Session(models.Model):
     def __str__(self):
         return self.lecture.title
 
+    class Meta:
+        ordering = ['date']
+
+
 class News(models.Model):
     title = models.CharField(max_length=64)
     date = models.DateTimeField()
@@ -102,16 +115,19 @@ class News(models.Model):
     class Meta:
         verbose_name_plural = "news"
 
+
 class Page(models.Model):
     name = models.SlugField()
     markdown = models.TextField()
     def __str__(self):
         return self.name
 
+
 class Document(models.Model):
     content = models.FileField(upload_to='files')
     def __str__(self):
         return self.content.name
+
 
 class Question(models.Model):
     statement = models.CharField(max_length=512)
