@@ -42,8 +42,8 @@ class UserHistoryInline(admin.TabularInline):
 
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ['get_name', 'mail', 'phone_number', 'comments', 'is_speaker']
-    list_filter = ['is_speaker']
+    list_display = ['get_name', 'mail', 'phone_number', 'comments', 'status', 'has_priority']
+    list_filter = ['status']
     search_fields = ['user__first_name', 'user__last_name', 'mail']
     inlines = [UserHistoryInline,]
 

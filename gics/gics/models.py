@@ -19,7 +19,14 @@ class Person(models.Model):
     mail = models.CharField(max_length=128)
     school = models.ForeignKey('School', blank=True, null=True)
     majors = models.ManyToManyField('Discipline', blank=True)
-    is_speaker = models.BooleanField(default=False)
+    status = models.CharField(max_length=15, default='speaker', choices=(
+        ('member', 'Membre adhérent'),
+        ('speaker', 'Simple intervenant'),
+        ('former', 'Ancien membre ou intervenant')
+    ))
+    has_priority = models.BooleanField(default=False)
+    favorite_schools = models.ManyToManyField('School', related_name='favorited', blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.first_name if not self.surname else '%s %s' % (self.first_name, self.surname)
     def get_name(self):
@@ -40,12 +47,15 @@ class UserHistory(models.Model):
     user = models.ForeignKey(Person)
     date = models.DateField()
     action = models.CharField(max_length=15, choices=(
+        ('ping', 'Contacté(e)'),
+        ('pong', 'A répondu'),
         ('joined', 'Adhésion'),
         ('quit', 'Démission'),
         ('fired', 'Radiation'),
-        ('offered', 'Don'),
+        ('offered', 'Don')
     ))
     donation = models.DecimalField(max_digits=16, decimal_places=2, default=0)
+    school = models.ForeignKey('School', blank=True, null=True)
     def __str__(self):
         return '%s %s' % (self.user, self.action)
     class Meta:
