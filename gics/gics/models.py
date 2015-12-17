@@ -25,7 +25,8 @@ class Person(models.Model):
     def get_name(self):
         return str(self)
     class Meta:
-        verbose_name_plural = "people"
+        ordering = ['first_name']
+        verbose_name_plural = 'people'
 
 
 class Note(models.Model):

@@ -5,8 +5,11 @@ from django.db import models
 from django.contrib import admin, messages
 from pagedown.widgets import AdminPagedownWidget
 
+
 class SessionInline(admin.TabularInline):
+    raw_id_fields = ['speaker']
     model = Session
+
 
 class SchoolAdmin(admin.ModelAdmin):
     list_display = ['title', 'manager', 'school_type']
@@ -33,44 +36,57 @@ class SchoolAdmin(admin.ModelAdmin):
 
     inlines = [SessionInline,]
 
+
 class UserHistoryInline(admin.TabularInline):
     model = UserHistory
+
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ['get_name', 'mail', 'phone_number', 'comments', 'is_speaker']
     list_filter = ['is_speaker']
+    search_fields = ['user__first_name', 'user__last_name', 'mail']
     inlines = [UserHistoryInline,]
+
 
 class LectureAdmin(admin.ModelAdmin):
     pass
 
+
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ('lecture', 'school', 'speaker', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done')
+    list_display = ['lecture', 'school', 'speaker', 'date', 'slot_defined', 'media_printed', 'feedback_collected', 'debrief_done']
+    raw_id_fields = ['speaker']
     def get_queryset(self, request):
-        qs = super(SessionAdmin, self).queryset(request)
+        qs = super(SessionAdmin, self).get_queryset(request)
         if request.user.is_superuser:
             return qs
         return qs.filter(school__manager=request.user)
 
+
 class DisciplineAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug')
 
+
 class NewsAdmin(admin.ModelAdmin):
     pass
+
 
 class PageAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
 
+
 class DocumentAdmin(admin.ModelAdmin):
     pass
+
 
 class QuestionAdmin(admin.ModelAdmin):
     pass
 
+
 class NoteAdmin(admin.ModelAdmin):
     pass
+
 
 admin.site.register(School, SchoolAdmin)
 admin.site.register(Person, PersonAdmin)
