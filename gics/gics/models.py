@@ -25,7 +25,7 @@ class Person(models.Model):
         ('former', 'Ancien membre ou intervenant')
     ))
     has_priority = models.BooleanField(default=False)
-    favorite_schools = models.ManyToManyField('School', related_name='favorited', blank=True, null=True)
+    favorite_schools = models.ManyToManyField('School', related_name='favorited', blank=True)
     address = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.first_name if not self.surname else '%s %s' % (self.first_name, self.surname)
@@ -59,6 +59,7 @@ class UserHistory(models.Model):
     def __str__(self):
         return '%s %s' % (self.user, self.action)
     class Meta:
+        ordering = ['-date']
         verbose_name_plural = "user histories"
 
 
