@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gics',
-    'pagedown'
+    'pagedown',
+    'captcha'
 )
 
 MIDDLEWARE_CLASSES = (

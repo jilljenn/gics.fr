@@ -1,6 +1,7 @@
 # coding=utf8
 from django.db import models
 from django.contrib.auth.models import User
+from secret import MAIL_CHOICES
 
 
 class UserProfile(models.Model):  # Garantir le lien
@@ -146,3 +147,14 @@ class Question(models.Model):
     answer = models.TextField()
     def __str__(self):
         return self.statement
+
+
+def to_form(choices):
+    return [(choice_id, choice_name) for choice_id, choice_name, _ in choices]
+
+
+class Contact(models.Model):
+    action = models.CharField(max_length=32, choices=to_form(MAIL_CHOICES), default='default', verbose_name='Que souhaitez-vous faire ?')
+    name = models.CharField(max_length=128, verbose_name='Votre nom complet')
+    email = models.CharField(max_length=128, verbose_name='Votre mail')
+    message = models.TextField(verbose_name='Votre message')

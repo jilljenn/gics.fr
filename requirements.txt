@@ -2,3 +2,4 @@ Django==1.8.6
 markdown
 gunicorn
 django-pagedown
+django-simple-captcha

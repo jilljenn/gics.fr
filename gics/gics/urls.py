@@ -26,4 +26,5 @@ urlpatterns = patterns('',
     url(r'^register/$', 'gics.views.register'),
     url(r'^faq/$', QuestionList.as_view()),
     url(r'^forum/$', 'gics.views.forum'),
+    url(r'^captcha/', include('captcha.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
