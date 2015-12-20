@@ -55,9 +55,9 @@ ROOT_URLCONF = 'gics.urls'
 
 WSGI_APPLICATION = 'gics.wsgi.application'
 
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + [
     'django.core.context_processors.request',
-)
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
