@@ -21,6 +21,7 @@ def index(request):
         'nb_users': Person.objects.count(),
         'news_list': News.objects.order_by('-date')[:5],
         'mail_choices': MAIL_CHOICES,
+        'form': ContactForm()
         # 'next_sessions': Session.objects.filter(date__gt=datetime.now()).order_by('date')[:5]
     })
 
