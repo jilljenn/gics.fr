@@ -32,7 +32,7 @@ def contact(request):
         if not form.is_valid():
             messages.error(request, 'Veuillez remplir tous les champs correctement')
         else:
-            from_mail = form.cleaned_data.get('mail')
+            from_mail = form.cleaned_data.get('email')
             to_mail = None
             for choice_id, _, mail in MAIL_CHOICES:
                 if choice_id == form.cleaned_data.get('action'):
