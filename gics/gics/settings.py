@@ -39,7 +39,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'gics',
     'pagedown',
-    'captcha'
+    'captcha',
+    'django.contrib.sites', # django 1.6.2+
+    'django.contrib.humanize',
+    'django_nyt',
+    'mptt',
+    'sekizai',
+    'sorl.thumbnail',
+    'wiki',
+    'wiki.plugins.attachments',
+    'wiki.plugins.notifications',
+    'wiki.plugins.images',
+    'wiki.plugins.macros',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,6 +68,7 @@ WSGI_APPLICATION = 'gics.wsgi.application'
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + [
     'django.core.context_processors.request',
+    'sekizai.context_processors.sekizai',
 ]
 
 # Database
@@ -94,3 +106,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/Users/jin/Sites/gics/gics/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # TODO only debug
+
+SITE_ID = 1

@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 from gics.views import MarkdownView, SchoolList, SessionList, SchoolDetail, LectureList, LectureDetail, NewsList, NewsDetail, QuestionList, DisciplineDetail
+from wiki.urls import get_pattern as get_wiki_pattern
+from django_nyt.urls import get_pattern as get_nyt_pattern
 
 from django.contrib import admin
 admin.autodiscover()
@@ -27,4 +29,6 @@ urlpatterns = patterns('',
     url(r'^faq/$', QuestionList.as_view()),
     url(r'^forum/$', 'gics.views.forum'),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'^notifications/', get_nyt_pattern()),
+    url(r'^wiki/', get_wiki_pattern()),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

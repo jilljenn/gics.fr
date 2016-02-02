@@ -3,3 +3,4 @@ markdown
 gunicorn
 django-pagedown
 django-simple-captcha
+wiki
