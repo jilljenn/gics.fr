@@ -1,5 +1,5 @@
 # coding=utf8
-from gics.models import School, Lecture, Session, UserHistory, Discipline, News, Page, Document, Person, Question, Note
+from gics.models import School, Lecture, Session, UserHistory, Discipline, News, Page, Document, Person, Question, Note, Alias
 from django.forms import Textarea
 from django.db import models
 from django.contrib import admin, messages
@@ -88,6 +88,9 @@ class NoteAdmin(admin.ModelAdmin):
     pass
 
 
+class AliasAdmin(admin.ModelAdmin):
+    list_display = ['slug', 'path']
+
 admin.site.register(School, SchoolAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Lecture, LectureAdmin)
@@ -98,3 +101,4 @@ admin.site.register(Page, PageAdmin)
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Note, NoteAdmin)
+admin.site.register(Alias, AliasAdmin)

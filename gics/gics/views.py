@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.core.mail import send_mail
-from gics.models import News, Session, Page, School, Session, Lecture, Question, Discipline, Note, Person
+from gics.models import News, Session, Page, School, Session, Lecture, Question, Discipline, Note, Person, Alias
 from gics.forms import ContactForm
 from datetime import datetime
 from markdown import markdown
@@ -175,3 +175,7 @@ class QuestionList(ListView):
 
 class DisciplineDetail(DetailView):
     model = Discipline
+
+def follow_alias(request, slug):
+    alias = get_object_or_404(Alias, slug=slug)
+    return redirect('/' + alias.path)

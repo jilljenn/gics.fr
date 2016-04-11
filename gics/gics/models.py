@@ -158,3 +158,8 @@ class Contact(models.Model):
     name = models.CharField(max_length=128, verbose_name='Votre nom complet')
     email = models.CharField(max_length=128, verbose_name='Votre mail')
     message = models.TextField(verbose_name='Votre message')
+
+
+class Alias(models.Model):
+    slug = models.SlugField(unique=True)
+    path = models.CharField(max_length=32)
