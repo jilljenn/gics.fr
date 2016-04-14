@@ -31,5 +31,5 @@ urlpatterns = patterns('',
     url(r'^captcha/', include('captcha.urls')),
     url(r'^notifications/', get_nyt_pattern()),
     url(r'^wiki/', get_wiki_pattern()),
-    url(r'^(?P<slug>[\w-]+)/', 'gics.views.follow_alias'),
+    url(r'^(?P<slug>[\w-]+)/$', 'gics.views.follow_alias'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
