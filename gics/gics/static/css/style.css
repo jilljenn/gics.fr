@@ -341,9 +341,10 @@ h1 {
 }
 
 .body:after {
-    /* content: ""; */
+    content: "";
     display: block;
     background: red;
+    height: 3em;
 }
 
 footer, .static:after {
