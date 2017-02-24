@@ -11,23 +11,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.conf import global_settings
-from secret import MEDIA_ROOT
+from secret import STATIC_ROOT, MEDIA_ROOT, DEBUG, ALLOWED_HOSTS, SECRET_KEY
+# from secret import EMAIL_BACKEND
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jxp!_3qw8uw-gqqo*l^9-%c*#3d(8cz+nuamdi9qw)c(pm*u#w'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', 'gics.dev']
-
+# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # Application definition
 
@@ -101,10 +89,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/srv/http/gics/static/'
-
 MEDIA_URL = '/media/'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # TODO only debug
 
 SITE_ID = 1
