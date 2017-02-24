@@ -343,7 +343,6 @@ h1 {
 .body:after {
     content: "";
     display: block;
-    background: red;
     height: 3em;
 }
 
